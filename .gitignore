@@ -1,2 +1,4 @@
 *.iml
 .idea
+sources/composer.lock
+sources/vendor/

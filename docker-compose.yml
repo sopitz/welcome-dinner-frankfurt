@@ -1,0 +1,27 @@
+apache:
+  build: docker/apache
+  expose:
+    - "80"
+  links:
+    - db
+  volumes_from:
+    - source
+  dns: 8.8.8.8
+  environment:
+    - VIRTUAL_HOST=anmeldung.welcome-dinner-frankfurt.de
+    - VIRTUAL_PORT=80
+db:
+  image: "mysql:5"
+  volumes:
+    - ./docker/mysql:/etc/mysql/conf.d
+    - /var/lib/mysql
+  volumes_from:
+    - source
+  environment:
+    MYSQL_ROOT_PASSWORD: phpapptest
+    MYSQL_DATABASE: huge
+source:
+   image: wnameless/sshd
+   volumes:
+    - /Users/sopitz/Daten/00-Luminoso/01-Projects/02-active/welcome-dinner-frankfurt/sources/:/var/www/html/sources/:rw
+   dns: 8.8.8.8
