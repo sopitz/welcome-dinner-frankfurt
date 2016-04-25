@@ -10,9 +10,9 @@
     <meta name="generator" content="2015.1.2.344"/>
     <title>Startseite</title>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/site_global.css?131700929"/>
-    <link rel="stylesheet" type="text/css" href="css/master_a-musters.css?444265083"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css?3904742004" id="pagesheet"/>
+    <link rel="stylesheet" type="text/css" href="<?php Config::get("URL"); ?>css/site_global.css?131700929"/>
+    <link rel="stylesheet" type="text/css" href="<?php Config::get("URL"); ?>css/master_a-musters.css?444265083"/>
+    <link rel="stylesheet" type="text/css" href="<?php Config::get("URL"); ?>css/index.css?3904742004" id="pagesheet"/>
     <!-- Other scripts -->
     <script type="text/javascript">
         document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
