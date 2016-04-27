@@ -14,6 +14,8 @@ class Host
     private $welcomeDinnerOrigin;
     private $coHosts;
     private $notes;
+    private $lat;
+    private $long;
 
     public function __construct($hostData) {
         $this->setGender($hostData['gender']);
@@ -31,6 +33,8 @@ class Host
         $this->setWelcomeDinnerOrigin($hostData['welcomeDinnerOrigin']);
         $this->setCoHosts($hostData['coHosts']);
         $this->setNotes($hostData['notes']);
+        $this->setLat($hostData['lat']);
+        $this->setLong($hostData['long']);
     }
 
     /**
@@ -223,6 +227,38 @@ class Host
     public function setNotes($notes)
     {
         $this->notes = $notes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * @param mixed $lat
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLong()
+    {
+        return $this->long;
+    }
+
+    /**
+     * @param mixed $long
+     */
+    public function setLong($long)
+    {
+        $this->long = $long;
     }
 
 }

@@ -13,7 +13,7 @@ class View
      * @param string $filename Path of the to-be-rendered view, usually folder/file(.php)
      * @param array $data Data to be used in the view
      */
-    public function render($filename, $data = null)
+    public function render($filename, $data = null, $template = true)
     {
         if ($data) {
             foreach ($data as $key => $value) {
@@ -21,9 +21,16 @@ class View
             }
         }
 
-        require Config::get('PATH_VIEW') . '_templates/header.php';
+        if ($template) {
+            require Config::get('PATH_VIEW') . '_templates/header.php';
+        }
+
         require Config::get('PATH_VIEW') . $filename . '.php';
-        require Config::get('PATH_VIEW') . '_templates/footer.php';
+
+        if ($template) {
+            require Config::get('PATH_VIEW') . '_templates/footer.php';
+        }
+
     }
 
     /**

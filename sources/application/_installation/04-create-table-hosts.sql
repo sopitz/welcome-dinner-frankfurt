@@ -12,5 +12,7 @@ CREATE TABLE IF NOT EXISTS `huge`.`hosts` (
  `host_origin` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `host_cohosts` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `host_notes` text COLLATE utf8_unicode_ci DEFAULT NULL,
+ `host_geo_lat` text COLLATE utf8_unicode_ci DEFAULT NULL,
+ `host_geo_long` text COLLATE utf8_unicode_ci DEFAULT NULL,
  PRIMARY KEY (`host_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='host data';

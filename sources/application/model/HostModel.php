@@ -10,11 +10,31 @@ class HostModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT user_id, note_id, note_text FROM notes WHERE user_id = :user_id";
+        $sql = "SELECT * FROM hosts";
         $query = $database->prepare($sql);
-        $query->execute(array(':user_id' => Session::get('user_id')));
+        $query->execute();
+        $hostsData = $query->fetchAll();
 
-        return $query->fetchAll();
+        $hosts = array();
+        foreach($hostsData as $entry) {
+            $hostData['gender'] = $entry->host_gender;
+            $hostData['firstname'] = $entry->host_firstname;
+            $hostData['lastname'] = $entry->host_lastname;
+            $hostData['phone'] = $entry->host_phone;
+            $hostData['mail'] = $entry->host_mail;
+            $hostData['street'] = $entry->host_street;
+            $hostData['zipCode'] = $entry->host_zipCode;
+            $hostData['city'] = $entry->host_city;
+            $hostData['languages'] = unserialize($entry->host_languages);
+            $hostData['welcomeDinnerOrigin'] = $entry->host_origin;
+            $hostData['coHosts'] = $entry->host_cohosts;
+            $hostData['notes'] = $entry->host_notes;
+            $hostData['lat'] = $entry->host_geo_lat;
+            $hostData['long'] = $entry->host_geo_long;
+            $host = new Host($hostData);
+            array_push($hosts, $host);
+        }
+        return $hosts;
     }
 
     public static function getHost($note_id)
@@ -44,7 +64,9 @@ class HostModel
                                       host_languages,
                                       host_origin,
                                       host_cohosts,
-                                      host_notes
+                                      host_notes,
+                                      host_geo_lat,
+                                      host_geo_long
                                    ) VALUES (
                                       :host_gender,
                                       :host_firstname,
@@ -57,7 +79,9 @@ class HostModel
                                       :host_languages,
                                       :host_origin,
                                       :host_cohosts,
-                                      :host_notes
+                                      :host_notes,
+                                      :host_geo_lat,
+                                      :host_geo_long
                                    )";
 
 
@@ -74,7 +98,9 @@ class HostModel
             ':host_languages' => serialize($host->getLanguages()),
             ':host_origin' => $host->getWelcomeDinnerOrigin(),
             ':host_cohosts' => $host->getCoHosts(),
-            ':host_notes' => $host->getNotes()
+            ':host_notes' => $host->getNotes(),
+            ':host_geo_lat' => $host->getLat(),
+            ':host_geo_long' => $host->getLong()
             )
         );
         $id = $database->lastInsertId();
