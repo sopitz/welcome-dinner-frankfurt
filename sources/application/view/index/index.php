@@ -37,7 +37,7 @@
             </div>
         </nav>
         <div class="clip_frame ose_pre_init mse_pre_init" id="u5497"><!-- image -->
-            <img class="block" id="u5497_img" src="images/logo_wdf_entwurf-2-08-07-07.png" alt="" width="57" height="57"/>
+            <img class="block" id="u5497_img" src="<?php echo Config::get("URL");?>public/images/logo_wdf_entwurf-2-08-07-07.png" alt="" width="57" height="57"/>
         </div>
         <div class="browser_width mse_pre_init" id="u334-3-bw">
             <div class="rgba-background clearfix" id="u334-3"><!-- content -->
@@ -51,7 +51,7 @@
             <p>Für eine Willkommenskultur in unserer Stadt</p>
         </div>
         <div class="clip_frame mse_pre_init" id="u5291"><!-- image -->
-            <img class="block" id="u5291_img" src="images/logo_wdf_entwurf-2-06167x167.png" alt="" width="167" height="167"/>
+            <img class="block" id="u5291_img" src="<?php echo Config::get("URL");?>public/images/logo_wdf_entwurf-2-06167x167.png" alt="" width="167" height="167"/>
         </div>
     </div>
     <div class="clearfix colelem" id="u2440-4"><!-- content -->
@@ -68,7 +68,7 @@
         <p>Gemeinsam lachen, gemeinsam genießen, Gemeinschaft leben, Trennung überwinden, Sprache lernen, Beziehung starten, Willkommen heißen, Integration leben - das wollen wir für und in Frankfurt!</p>
         <p>&nbsp;</p>
     </div>
-    <a class="nonblock nontext clip_frame colelem" id="u3729" href="welcome-dinner.html"><!-- image --><img class="block" id="u3729_img" src="images/weiterlesen-schwarz.png" alt="" width="40" height="41"/></a>
+    <a class="nonblock nontext clip_frame colelem" id="u3729" href="welcome-dinner.html"><!-- image --><img class="block" id="u3729_img" src="<?php echo Config::get("URL");?>public/images/weiterlesen-schwarz.png" alt="" width="40" height="41"/></a>
     <div class="clearfix colelem" id="psei_gast"><!-- group -->
         <a class="anchor_item grpelem" id="sei_gast"></a>
         <div class="browser_width grpelem" id="u1012-bw">
@@ -93,7 +93,7 @@
                     <p id="u2443-8">&nbsp;</p>
                     <p id="u2443-10">Sei gespannt, was dich erwartet – weil Essen Brücken schlägt.</p>
                 </div>
-                <a class="nonblock nontext clip_frame colelem" id="u3709" href="gast-werden.html"><!-- image --><img class="block" id="u3709_img" src="images/weiterlesen-wei%c3%9f.png" alt="" width="40" height="41"/></a>
+                <a class="nonblock nontext clip_frame colelem" id="u3709" href="gast-werden.html"><!-- image --><img class="block" id="u3709_img" src="<?php echo Config::get("URL");?>public/images/weiterlesen-wei%c3%9f.png" alt="" width="40" height="41"/></a>
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@
                     <p>werde Gastgeber</p>
                 </div>
                 <div class="clearfix colelem" id="pu3739"><!-- group -->
-                    <a class="nonblock nontext clip_frame grpelem" id="u3739" href="gastgeber-werden.html"><!-- image --><img class="block" id="u3739_img" src="images/weiterlesen-schwarz.png" alt="" width="40" height="41"/></a>
+                    <a class="nonblock nontext clip_frame grpelem" id="u3739" href="gastgeber-werden.html"><!-- image --><img class="block" id="u3739_img" src="<?php echo Config::get("URL");?>public/images/weiterlesen-schwarz.png" alt="" width="40" height="41"/></a>
                     <div class="clearfix grpelem" id="u5791-16"><!-- content -->
                         <p id="u5791-2">Für Gastgeber</p>
                         <p id="u5791-3">&nbsp;</p>
@@ -154,7 +154,7 @@
                     <div class="clearfix colelem" id="u4962-4"><!-- content -->
                         <p>Möchtest Du aktiv werden und Welcome Dinner auch in Deiner Stadt ermöglichen? Dann schreib uns und wir helfen Dir beim Start.</p>
                     </div>
-                    <a class="nonblock nontext clip_frame colelem" id="u4955" href="partner.html"><!-- image --><img class="block" id="u4955_img" src="images/weiterlesen-schwarz.png" alt="" width="40" height="41"/></a>
+                    <a class="nonblock nontext clip_frame colelem" id="u4955" href="partner.html"><!-- image --><img class="block" id="u4955_img" src="<?php echo Config::get("URL");?>public/images/weiterlesen-schwarz.png" alt="" width="40" height="41"/></a>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
                 <span class="fld-textarea actAsDiv clearfix grpelem" id="u3002-4"><!-- content --><textarea class="wrapped-input" id="widgetu2999_input" name="custom_U2999" tabindex="3"></textarea><label class="wrapped-input fld-prompt" id="widgetu2999_prompt" for="widgetu2999_input"><span class="actAsPara">Nachricht eingeben</span></label></span>
             </div>
         </form>
-        <a class="nonblock nontext anim_swing clip_frame grpelem" id="u5781" href="index.html#startseite" data-mu-ie-matrix="progid:DXImageTransform.Microsoft.Matrix(M11=-1,M12=0,M21=0,M22=-1,SizingMethod='auto expand')" data-mu-ie-matrix-dx="0" data-mu-ie-matrix-dy="0"><!-- image --><img class="block" id="u5781_img" src="images/pfeil-schwarz.png" alt="" width="96" height="96"/></a>
+        <a class="nonblock nontext anim_swing clip_frame grpelem" id="u5781" href="index.html#startseite" data-mu-ie-matrix="progid:DXImageTransform.Microsoft.Matrix(M11=-1,M12=0,M21=0,M22=-1,SizingMethod='auto expand')" data-mu-ie-matrix-dx="0" data-mu-ie-matrix-dy="0"><!-- image --><img class="block" id="u5781_img" src="<?php echo Config::get("URL");?>public/images/pfeil-schwarz.png" alt="" width="96" height="96"/></a>
     </div>
     <div class="verticalspacer"></div>
     <div class="clearfix colelem" id="pu6469-4"><!-- group -->

@@ -1,7 +1,7 @@
 <div class="preload_images">
-    <img class="preload" src="<?php Config::get("URL"); ?>images/u2998-17-r.png" alt=""/>
-    <img class="preload" src="<?php Config::get("URL"); ?>images/u2998-17-m.png" alt=""/>
-    <img class="preload" src="<?php Config::get("URL"); ?>images/u2998-17-fs.png" alt=""/>
+    <img class="preload" src="<?php echo Config::get("URL"); ?>public/images/u2998-17-r.png" alt=""/>
+    <img class="preload" src="<?php echo Config::get("URL"); ?>public/images/u2998-17-m.png" alt=""/>
+    <img class="preload" src="<?php echo Config::get("URL"); ?>public/images/u2998-17-fs.png" alt=""/>
 </div>
 <!-- JS includes -->
 <script type="text/javascript">
@@ -10,13 +10,13 @@
 <script type="text/javascript">
     window.jQuery || document.write('\x3Cscript src="scripts/jquery-1.8.3.min.js" type="text/javascript">\x3C/script>');
 </script>
-<script src="<?php Config::get("URL"); ?>js/museutils.js?3790713428" type="text/javascript"></script>
-<script src="<?php Config::get("URL"); ?>js/whatinput.js?84559013" type="text/javascript"></script>
-<script src="<?php Config::get("URL"); ?>js/jquery.musepolyfill.bgsize.js?3918880840" type="text/javascript"></script>
-<script src="<?php Config::get("URL"); ?>js/jquery.watch.js?4244854265" type="text/javascript"></script>
-<script src="<?php Config::get("URL"); ?>js/jquery.musemenu.js?238543590" type="text/javascript"></script>
-<script src="<?php Config::get("URL"); ?>js/webpro.js?329496574" type="text/javascript"></script>
-<script src="<?php Config::get("URL"); ?>js/jquery.scrolleffects.js?4219894366" type="text/javascript"></script>
+<script src="<?php echo Config::get("URL"); ?>public/js/museutils.js?3790713428" type="text/javascript"></script>
+<script src="<?php echo Config::get("URL"); ?>public/js/whatinput.js?84559013" type="text/javascript"></script>
+<script src="<?php echo Config::get("URL"); ?>public/js/jquery.musepolyfill.bgsize.js?3918880840" type="text/javascript"></script>
+<script src="<?php echo Config::get("URL"); ?>public/js/jquery.watch.js?4244854265" type="text/javascript"></script>
+<script src="<?php echo Config::get("URL"); ?>public/js/jquery.musemenu.js?238543590" type="text/javascript"></script>
+<script src="<?php echo Config::get("URL"); ?>public/js/webpro.js?329496574" type="text/javascript"></script>
+<script src="<?php echo Config::get("URL"); ?>public/js/jquery.scrolleffects.js?4219894366" type="text/javascript"></script>
 <!-- Other scripts -->
 <script type="text/javascript">
     $(document).ready(function() { try {
