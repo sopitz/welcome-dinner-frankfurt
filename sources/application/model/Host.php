@@ -10,7 +10,7 @@ class Host
     private $street;
     private $zipCode;
     private $city;
-    private $languages;
+    private $languages = array();
     private $welcomeDinnerOrigin;
     private $coHosts;
     private $notes;
@@ -24,7 +24,10 @@ class Host
         $this->setStreet($hostData['street']);
         $this->setZipCode($hostData['zipCode']);
         $this->setCity($hostData['city']);
-        $this->setLanguages($hostData['languages']);
+        foreach($hostData['languages'] as $language) {
+            $this->setLanguages($language);
+        }
+
         $this->setWelcomeDinnerOrigin($hostData['welcomeDinnerOrigin']);
         $this->setCoHosts($hostData['coHosts']);
         $this->setNotes($hostData['notes']);
@@ -167,11 +170,11 @@ class Host
     }
 
     /**
-     * @param mixed $languages
+     * @param array $languages
      */
     public function setLanguages($languages)
     {
-        $this->languages = $languages;
+        array_push($this->languages, $languages);
     }
 
     /**

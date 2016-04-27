@@ -32,16 +32,56 @@ class HostModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        //$sql = "INSERT INTO notes (note_text, user_id) VALUES (:note_text, :user_id)";
-        //$query = $database->prepare($sql);
-        //$query->execute(array(':note_text' => $note_text, ':user_id' => Session::get('user_id')));
+        $sql = "INSERT INTO hosts (
+                                      host_gender,
+                                      host_firstname,
+                                      host_lastname,
+                                      host_phone,
+                                      host_mail,
+                                      host_street,
+                                      host_zipCode,
+                                      host_city,
+                                      host_languages,
+                                      host_origin,
+                                      host_cohosts,
+                                      host_notes
+                                   ) VALUES (
+                                      :host_gender,
+                                      :host_firstname,
+                                      :host_lastname,
+                                      :host_phone,
+                                      :host_mail,
+                                      :host_street,
+                                      :host_zipCode,
+                                      :host_city,
+                                      :host_languages,
+                                      :host_origin,
+                                      :host_cohosts,
+                                      :host_notes
+                                   )";
 
-        //if ($query->rowCount() == 1) {
-        //    return true;
-        //}
 
-        var_dump($host);
+        $query = $database->prepare($sql);
+        $query->execute(array(
+            ':host_gender' => $host->getGender(),
+            ':host_firstname' => $host->getFirstname(),
+            ':host_lastname' => $host->getLastname(),
+            ':host_phone' => $host->getPhone(),
+            ':host_mail' => $host->getMail(),
+            ':host_street' => $host->getStreet(),
+            ':host_zipCode' => $host->getZipCode(),
+            ':host_city' => $host->getCity(),
+            ':host_languages' => serialize($host->getLanguages()),
+            ':host_origin' => $host->getWelcomeDinnerOrigin(),
+            ':host_cohosts' => $host->getCoHosts(),
+            ':host_notes' => $host->getNotes()
+            )
+        );
 
-        //return false;
+        if ($query->rowCount() == 1) {
+            return true;
+        }
+
+        return false;
     }
 }

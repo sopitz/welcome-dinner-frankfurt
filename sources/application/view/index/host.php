@@ -9,8 +9,8 @@
     <input type="text" name="street" placeholder="street" required /><br>
     <input type="text" name="zipCode" placeholder="zipCode" required /><br>
     <input type="text" name="city" placeholder="city" required /><br>
-    <input type="checkbox" name="languages" value="german">german<br>
-    <input type="checkbox" name="languages" value="english">english<br>
+    <input type="checkbox" name="languages[]" value="german">german<br>
+    <input type="checkbox" name="languages[]" value="english">english<br>
     <input type="text" name="welcomeDinnerOrigin" placeholder="welcomeDinnerOrigin" required /><br>
     <input type="text" name="coHosts" placeholder="coHosts" required /><br>
     <textarea name="notes" placeholder="notes"></textarea>

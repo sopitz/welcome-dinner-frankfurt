@@ -34,13 +34,19 @@ class HostController extends Controller
         $hostData['street'] = Request::post('street');
         $hostData['zipCode'] = Request::post('zipCode');
         $hostData['city'] = Request::post('city');
-        $hostData['languages'] = Request::post('languages');
+        $hostData['languages'] = Request::post('languages', false);
         $hostData['welcomeDinnerOrigin'] = Request::post('welcomeDinnerOrigin');
         $hostData['coHosts'] = Request::post('coHosts');
         $hostData['notes'] = Request::post('notes');
         $host = new Host($hostData);
-        HostModel::createHost($host);
-        //Redirect::to('note');
+        if (HostModel::createHost($host)) {
+            // success
+            //Redirect::to('note');
+        } else {
+            // failure
+            //Redirect::to('note');
+        }
+
     }
 
 }
