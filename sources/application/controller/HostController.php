@@ -39,11 +39,13 @@ class HostController extends Controller
         $hostData['coHosts'] = Request::post('coHosts');
         $hostData['notes'] = Request::post('notes');
         $host = new Host($hostData);
-        if (HostModel::createHost($host)) {
-            // success
+        $result = HostModel::createHost($host);
+        if (!$result) {
+            // failure
             //Redirect::to('note');
         } else {
-            // failure
+            // success
+            return $result;
             //Redirect::to('note');
         }
 

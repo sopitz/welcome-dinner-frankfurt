@@ -77,9 +77,9 @@ class HostModel
             ':host_notes' => $host->getNotes()
             )
         );
-
+        $id = $database->lastInsertId();
         if ($query->rowCount() == 1) {
-            return true;
+            return $id;
         }
 
         return false;

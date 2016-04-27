@@ -3,6 +3,12 @@
 class Dinner
 {
     private $date;
+    private $hostId;
+
+    public function __construct($dinnerData) {
+        $this->setDate($dinnerData['date']);
+        $this->setHostId($dinnerData['hostId']);
+    }
 
     /**
      * @return mixed
@@ -19,4 +25,22 @@ class Dinner
     {
         $this->date = $date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getHostId()
+    {
+        return $this->hostId;
+    }
+
+    /**
+     * @param mixed $hostId
+     */
+    public function setHostId($hostId)
+    {
+        $this->hostId = $hostId;
+    }
+
+
 }

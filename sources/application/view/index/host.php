@@ -13,7 +13,8 @@
     <input type="checkbox" name="languages[]" value="english">english<br>
     <input type="text" name="welcomeDinnerOrigin" placeholder="welcomeDinnerOrigin" required /><br>
     <input type="text" name="coHosts" placeholder="coHosts" required /><br>
-    <textarea name="notes" placeholder="notes"></textarea>
+    <textarea name="notes" placeholder="notes"></textarea><br />
+    <input type="date" name="date" /><br />
 
     <input type="submit" value="Submit">
 
