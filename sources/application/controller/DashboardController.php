@@ -21,6 +21,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $this->View->render('dashboard/index', array('hosts' => HostModel::getAllHosts()), false);
+        $this->View->render('dashboard/index', array('hosts' => HostModel::getAllHosts(), 'guests' => GuestModel::getAllGuests()), false);
     }
 }

@@ -20,18 +20,22 @@ class guestModel
             $guestData['gender'] = $entry->guest_gender;
             $guestData['firstname'] = $entry->guest_firstname;
             $guestData['lastname'] = $entry->guest_lastname;
+            $guestData['age'] = $entry->guest_age;
             $guestData['phone'] = $entry->guest_phone;
             $guestData['mail'] = $entry->guest_mail;
             $guestData['street'] = $entry->guest_street;
             $guestData['zipCode'] = $entry->guest_zipCode;
             $guestData['city'] = $entry->guest_city;
+            $guestData['country'] = $entry->guest_country;
             $guestData['languages'] = unserialize($entry->guest_languages);
+            $guestData['foodspecials'] = unserialize($entry->guest_foodspecials);
+            $guestData['foodspecialsnotes'] = $entry->guest_foodspecialsnotes;
             $guestData['welcomeDinnerOrigin'] = $entry->guest_origin;
-            $guestData['coguests'] = $entry->guest_coguests;
+            $guestData['bringalongs'] = $entry->guest_bringalongs;
             $guestData['notes'] = $entry->guest_notes;
             $guestData['lat'] = $entry->guest_geo_lat;
             $guestData['long'] = $entry->guest_geo_long;
-            $guest = new guest($guestData);
+            $guest = new Guest($guestData);
             array_push($guests, $guest);
         }
         return $guests;

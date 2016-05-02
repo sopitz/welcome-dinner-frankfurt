@@ -23,20 +23,7 @@
 
 </head>
 <body>
-<div id="wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h1>Hosts</h1>
-
-            </div>
-        </div>
-    </div>
-
-</div>
 <div id="map"></div>
-
-
 <script>
 
     function initMap() {
@@ -47,14 +34,24 @@
 
         <?php
 
-        $counter = 0;
-
+        $hostCounter = 0;
         foreach($this->hosts as $host) {
-            echo 'var infowindow'.$counter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$host->getFirstname().' '.$host->getLastname().'</h3><div id="bodyContent"><p>Tel: '.$host->getPhone().'</p></div></div>\'});';
-            echo 'var marker'.$counter.' = new google.maps.Marker({position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
-            echo 'marker'.$counter.'.addListener(\'click\', function() {infowindow'.$counter.'.open(map, marker'.$counter.');});';
-            $counter++;
+            echo 'var HOSTinfowindow'.$hostCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$host->getFirstname().' '.$host->getLastname().'</h3>(Host)<div id="bodyContent"><p>Tel: '.$host->getPhone().'</p></div></div>\'});';
+            echo 'var HOSTmarker'.$hostCounter.' = new google.maps.Marker({position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
+            echo 'HOSTmarker'.$hostCounter.'.addListener(\'click\', function() {HOSTinfowindow'.$hostCounter.'.open(map, HOSTmarker'.$hostCounter.');});';
+            $hostCounter++;
         }
+
+        $guestCounter = 0;
+        foreach($this->guests as $guest) {
+            echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$guest->getFirstname().' '.$guest->getLastname().'</h3>(Guest)<div id="bodyContent"><p>Tel: '.$guest->getPhone().'</p></div></div>\'});';
+            echo 'var GUESTmarker'.$guestCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/green-dot.png\', position: {lat: '.$guest->getLat().', lng: '.$guest->getLong().'},map: map,title: \''.$guest->getFirstname().' '.$guest->getLastname().'\'});';
+            echo 'GUESTmarker'.$guestCounter.'.addListener(\'click\', function() {GUESTinfowindow'.$guestCounter.'.open(map, GUESTmarker'.$guestCounter.');});';
+            $guestCounter++;
+        }
+
+
+
         ?>
     }
 
