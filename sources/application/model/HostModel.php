@@ -26,6 +26,7 @@ class HostModel
             $hostData['zipCode'] = $entry->host_zipCode;
             $hostData['city'] = $entry->host_city;
             $hostData['languages'] = unserialize($entry->host_languages);
+            $hostData['languagesnotes'] = $entry->host_languagesnotes;
             $hostData['welcomeDinnerOrigin'] = $entry->host_origin;
             $hostData['coHosts'] = $entry->host_cohosts;
             $hostData['notes'] = $entry->host_notes;
@@ -41,7 +42,7 @@ class HostModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT user_id, note_id, note_text FROM notes WHERE user_id = :user_id AND note_id = :note_id LIMIT 1";
+        $sql = "SELECT * FROM hosts WHERE user_id = :user_id AND note_id = :note_id LIMIT 1";
         $query = $database->prepare($sql);
         $query->execute(array(':user_id' => Session::get('user_id'), ':note_id' => $note_id));
 
@@ -62,6 +63,7 @@ class HostModel
                                       host_zipCode,
                                       host_city,
                                       host_languages,
+                                      host_languagesnotes,
                                       host_origin,
                                       host_cohosts,
                                       host_notes,
@@ -77,6 +79,7 @@ class HostModel
                                       :host_zipCode,
                                       :host_city,
                                       :host_languages,
+                                      :host_languagesnotes,
                                       :host_origin,
                                       :host_cohosts,
                                       :host_notes,
@@ -96,6 +99,7 @@ class HostModel
             ':host_zipCode' => $host->getZipCode(),
             ':host_city' => $host->getCity(),
             ':host_languages' => serialize($host->getLanguages()),
+            ':host_languagesnotes' => $host->getLanguagesnotes(),
             ':host_origin' => $host->getWelcomeDinnerOrigin(),
             ':host_cohosts' => $host->getCoHosts(),
             ':host_notes' => $host->getNotes(),

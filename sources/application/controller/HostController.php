@@ -35,6 +35,7 @@ class HostController extends Controller
         $hostData['zipCode'] = Request::post('zipCode');
         $hostData['city'] = Request::post('city');
         $hostData['languages'] = Request::post('languages', false);
+        $hostData['languagesnotes'] = Request::post('languagesnotes', false);
         $hostData['welcomeDinnerOrigin'] = Request::post('welcomeDinnerOrigin');
         $hostData['coHosts'] = Request::post('coHosts');
         $hostData['notes'] = Request::post('notes');

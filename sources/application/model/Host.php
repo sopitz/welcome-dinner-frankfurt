@@ -11,6 +11,7 @@ class Host
     private $zipCode;
     private $city;
     private $languages = array();
+    private $languagesnotes;
     private $welcomeDinnerOrigin;
     private $coHosts;
     private $notes;
@@ -30,6 +31,7 @@ class Host
             $this->setLanguages($language);
         }
 
+        $this->setLanguagesnotes($hostData['languagesnotes']);
         $this->setWelcomeDinnerOrigin($hostData['welcomeDinnerOrigin']);
         $this->setCoHosts($hostData['coHosts']);
         $this->setNotes($hostData['notes']);
@@ -261,4 +263,19 @@ class Host
         $this->long = $long;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLanguagesnotes()
+    {
+        return $this->languagesnotes;
+    }
+
+    /**
+     * @param mixed $languagesnotes
+     */
+    public function setLanguagesnotes($languagesnotes)
+    {
+        $this->languagesnotes = $languagesnotes;
+    }
 }

@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `huge`.`hosts` (
  `host_zipCode` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `host_city` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `host_languages` text COLLATE utf8_unicode_ci DEFAULT NULL,
+ `host_languagesnotes` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `host_origin` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `host_cohosts` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `host_notes` text COLLATE utf8_unicode_ci DEFAULT NULL,
