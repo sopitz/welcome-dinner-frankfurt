@@ -180,7 +180,7 @@ class Guest
      */
     public function getLanguages()
     {
-        return $this->languages;
+        return implode(", ", $this->languages);
     }
 
     /**
@@ -308,7 +308,7 @@ class Guest
      */
     public function getFoodspecials()
     {
-        return $this->foodspecials;
+        return implode(", ", $this->foodspecials);
     }
 
     /**

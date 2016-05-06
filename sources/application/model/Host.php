@@ -172,7 +172,7 @@ class Host
      */
     public function getLanguages()
     {
-        return $this->languages;
+        return implode(", ", $this->languages);
     }
 
     /**
