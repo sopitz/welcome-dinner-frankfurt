@@ -32,12 +32,17 @@ class Guest
         $this->setZipCode($guestData['zipCode']);
         $this->setCity($guestData['city']);
         $this->setCountry($guestData['country']);
+        echo '<pre>';
+        debug_print_backtrace();
+        var_dump($guestData['languages']);
+        echo '</pre>';
         foreach($guestData['languages'] as $language) {
             $this->setLanguages($language);
         }
         foreach($guestData['foodspecials'] as $foodspecial) {
             $this->setFoodspecials($foodspecial);
         }
+
 
         $this->setFoodspecialsnotes($guestData['foodspecialsnotes']);
         $this->setWelcomeDinnerOrigin($guestData['welcomeDinnerOrigin']);
@@ -183,6 +188,10 @@ class Guest
         return implode(", ", $this->languages);
     }
 
+    public function getLanguagesArray() {
+        return $this->languages;
+    }
+
     /**
      * @param array $languages
      */
@@ -309,6 +318,11 @@ class Guest
     public function getFoodspecials()
     {
         return implode(", ", $this->foodspecials);
+    }
+
+    public function getFoodspecialsArray()
+    {
+        return $this->foodspecials;
     }
 
     /**
