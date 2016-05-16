@@ -2,6 +2,7 @@
 
 class Guest
 {
+    private $id;
     private $gender;
     private $firstname;
     private $lastname;
@@ -20,6 +21,7 @@ class Guest
     private $notes;
     private $lat;
     private $long;
+    private $guestDinner;
 
     public function __construct($guestData) {
         $this->setGender($guestData['gender']);
@@ -32,10 +34,6 @@ class Guest
         $this->setZipCode($guestData['zipCode']);
         $this->setCity($guestData['city']);
         $this->setCountry($guestData['country']);
-        echo '<pre>';
-        debug_print_backtrace();
-        var_dump($guestData['languages']);
-        echo '</pre>';
         foreach($guestData['languages'] as $language) {
             $this->setLanguages($language);
         }
@@ -365,6 +363,35 @@ class Guest
         $this->bringalongs = $bringalongs;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getGuestDinner()
+    {
+        return $this->guestDinner;
+    }
+
+    /**
+     * @param mixed $guestDinner
+     */
+    public function setGuestDinner($guestDinner)
+    {
+        $this->guestDinner = $guestDinner;
+    }
 }

@@ -18,5 +18,6 @@ CREATE TABLE IF NOT EXISTS `huge`.`guests` (
  `guest_notes` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `guest_geo_lat` text COLLATE utf8_unicode_ci DEFAULT NULL,
  `guest_geo_long` text COLLATE utf8_unicode_ci DEFAULT NULL,
+ `guest_dinner_id` int(11) COLLATE utf8_unicode_ci DEFAULT NULL,
  PRIMARY KEY (`guest_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='guest data';

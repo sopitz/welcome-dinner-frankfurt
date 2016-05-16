@@ -24,6 +24,11 @@ class GuestController extends Controller
         $this->View->render('index/guest', array());
     }
 
+    public function match($id) {
+        GuestModel::matchToDinner($id);
+        echo $id;
+    }
+
     public function create()
     {
         $guestData['gender'] = Request::post('gender');

@@ -33,8 +33,14 @@ class HostModel
             $hostData['lat'] = $entry->host_geo_lat;
             $hostData['long'] = $entry->host_geo_long;
             $host = new Host($hostData);
+            $host->setId($entry->host_id);
+
+            $dinner = DinnerModel::getDinner($entry->host_id);
+            $host->setDinner($dinner->getDate());
             array_push($hosts, $host);
         }
+
+
         return $hosts;
     }
 

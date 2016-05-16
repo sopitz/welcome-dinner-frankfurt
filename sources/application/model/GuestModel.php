@@ -36,6 +36,7 @@ class guestModel
             $guestData['lat'] = $entry->guest_geo_lat;
             $guestData['long'] = $entry->guest_geo_long;
             $guest = new Guest($guestData);
+            $guest->setId($entry->guest_id);
             array_push($guests, $guest);
         }
         return $guests;
@@ -50,6 +51,22 @@ class guestModel
         $query->execute(array(':user_id' => Session::get('user_id'), ':note_id' => $note_id));
 
         return $query->fetch();
+    }
+
+    public static function matchToDinner($guestId) {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $sql = "UPDATE guests set guest_dinner_id=:guest_dinner_id where guest_id=:guest_id";
+
+        echo "dinnerid".Request::post('dinnerId');
+        $dinnerId = Request::post('dinnerId');
+
+        $query = $database->prepare($sql);
+        $query->execute(array(
+                ':guest_dinner_id' => $dinnerId,
+                ':guest_id' => $guestId
+            )
+        );
     }
 
     public static function createGuest($guest)

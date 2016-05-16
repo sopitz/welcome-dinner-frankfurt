@@ -2,6 +2,7 @@
 
 class Host
 {
+    private $id;
     private $gender;
     private $firstname;
     private $lastname;
@@ -17,6 +18,7 @@ class Host
     private $notes;
     private $lat;
     private $long;
+    private $dinner;
 
     public function __construct($hostData) {
         $this->setGender($hostData['gender']);
@@ -277,5 +279,37 @@ class Host
     public function setLanguagesnotes($languagesnotes)
     {
         $this->languagesnotes = $languagesnotes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDinner()
+    {
+        return $this->dinner;
+    }
+
+    /**
+     * @param mixed $dinner
+     */
+    public function setDinner($dinner)
+    {
+        $this->dinner = $dinner;
     }
 }

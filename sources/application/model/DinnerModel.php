@@ -6,35 +6,34 @@
  */
 class DinnerModel
 {
-    public static function getAllDinners()
-    {
-        $database = DatabaseFactory::getFactory()->getConnection();
-
-        $sql = "SELECT user_id, note_id, note_text FROM notes WHERE user_id = :user_id";
-        $query = $database->prepare($sql);
-        $query->execute(array(':user_id' => Session::get('user_id')));
-
-        return $query->fetchAll();
-    }
-
     public static function getDinner($id)
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT user_id, note_id, note_text FROM notes WHERE user_id = :user_id AND note_id = :note_id LIMIT 1";
+        $sql = "SELECT * FROM dinners WHERE dinner_host_id = :dinner_host_id";
         $query = $database->prepare($sql);
-        $query->execute(array(':user_id' => Session::get('user_id'), ':note_id' => $id));
+        $query->execute(array(':dinner_host_id' => $id));
 
-        return $query->fetch();
+        $entry = $query->fetch();
+
+        if ($entry) {
+            $dinnerData['date'] = $entry->dinner_date;
+            $dinnerData['hostId'] = $entry->dinner_host_id;
+            $dinner = new Dinner($dinnerData);
+            return $dinner;
+        }
+
+        return null;
     }
+
 
     public static function createDinner($dinner)
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "INSERT INTO dinners (dinner_host_id, dinner_date) VALUES (:dinner_host_id, :dinner_date)";
+        $sql = "INSERT INTO dinners (dinner_dinner_id, dinner_date) VALUES (:dinner_dinner_id, :dinner_date)";
         $query = $database->prepare($sql);
-        $query->execute(array(':dinner_host_id' => $dinner->getHostId(), ':dinner_date' => $dinner->getDate()));
+        $query->execute(array(':dinner_dinner_id' => $dinner->getdinnerId(), ':dinner_date' => $dinner->getDate()));
 
         if ($query->rowCount() == 1) {
             return true;
