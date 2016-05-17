@@ -10,7 +10,7 @@ class guestModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT * FROM guests";
+        $sql = "SELECT * FROM guests where guest_dinner_id IS NULL";
         $query = $database->prepare($sql);
         $query->execute();
         $guestsData = $query->fetchAll();
