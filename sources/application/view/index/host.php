@@ -78,7 +78,7 @@
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="mail">E-Mail*</label>
                     <div class="col-sm-12 col-md-10">
-                        <inputclass="col-sm-12 col-md-10"  type="email" name="mail" placeholder="E-Mail" required />
+                        <input class="col-sm-12 col-md-10" type="email" name="mail" placeholder="E-Mail" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
