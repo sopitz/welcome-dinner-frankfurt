@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="city">Land*</label>
+                    <label class="control-label col-sm-2" for="city">Aus welchem Land kommst du?*</label>
                     <div class="col-sm-12 col-md-10">
                         <input class="col-sm-12 col-md-10" type="text" name="country" placeholder="Land" required />
                     </div>
