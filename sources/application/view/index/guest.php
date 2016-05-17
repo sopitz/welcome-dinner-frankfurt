@@ -34,7 +34,7 @@
     <div class="row">
         <div class="col-sm-8">
             <p>Du bist Flüchtling in Frankfurt am Main? Du möchtest dich gerne auf Deutsch, Englisch und auch mit Händen und Füßen austauschen?</p>
-            <p>Dann möchten dich Hamburger herzlich willkommen heißen mit einem Abendessen!</p>
+            <p>Dann möchten dich Frankfurter herzlich willkommen heißen mit einem Abendessen!</p>
             <p>Wie das geht?</p>
             <ol>
                 <li>Trag dich einfach in das Formular unten ein.</li>
@@ -63,95 +63,94 @@
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="gender">Vorname*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="firstname" placeholder="Vorname" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="firstname" placeholder="Vorname" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="lastname">Nachname*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="lastname" placeholder="Nachname" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="lastname" placeholder="Nachname" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="lastname">Alter*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="age" placeholder="Alter" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="age" placeholder="Alter" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="phone">Telefon*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="tel" name="phone" placeholder="Telefon" required />
+                        <input class="col-sm-12 col-md-10" type="tel" name="phone" placeholder="Telefon" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="mail">E-Mail*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="email" name="mail" placeholder="E-Mail" required />
+                        <input class="col-sm-12 col-md-10" type="email" name="mail" placeholder="E-Mail" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="street">Straße & Hausnummer*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="street" placeholder="Straße & Hausnummer" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="street" placeholder="Straße & Hausnummer" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="zipCode">PLZ*</label>
+                    <label class="control-label col-sm-2" for="zipCode">Postleitzahl*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="zipCode" placeholder="PLZ" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="zipCode" placeholder="Postleitzahl" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="city">Stadt*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="city" placeholder="Stadt" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="city" placeholder="Stadt" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="city">Land*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="country" placeholder="Land" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="country" placeholder="Land" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="languages">Sprachkenntnisse*</label>
+                    <label class="control-label col-sm-2" for="languages">Welche Sprachen sprichst du?*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="checkbox" name="languages[]" value="german">german<br>
-                        <input type="checkbox" name="languages[]" value="english">english<br>
-                        <input type="checkbox" name="languages[]" value="french">french<br>
-                        <input type="checkbox" name="languages[]" value="spanish">spanish<br>
-                        <input type="checkbox" name="languages[]" value="arabic">arabic<br>
+                        <input type="checkbox" name="languages[]" value="german"> deutsch<br>
+                        <input type="checkbox" name="languages[]" value="english"> englisch<br>
+                        <input type="checkbox" name="languages[]" value="french"> französisch<br>
+                        <input type="checkbox" name="languages[]" value="spanish"> spanisch<br>
+                        <input type="checkbox" name="languages[]" value="arabic"> arabisch<br>
                         <textarea name="languagesnotes" placeholder="weitere Sprachkenntnisse"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="languages">Sprachkenntnisse*</label>
+                    <label class="control-label col-sm-2" for="languages">Essen*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="checkbox" name="foodspecials[]" value="halal">Halal<br>
-                        <input type="checkbox" name="foodspecials[]" value="nopork">kein Schweinefleisch<br>
-                        <input type="checkbox" name="foodspecials[]" value="vegetarian">vegetarisch<br>
-                        <textarea name="foodspecialsnotes" placeholder="sonstiges"></textarea><br />
+                        <input type="checkbox" name="foodspecials[]" value="halal"> Halal<br>
+                        <input type="checkbox" name="foodspecials[]" value="nopork"> kein Schweinefleisch<br>
+                        <input type="checkbox" name="foodspecials[]" value="vegetarian"> vegetarisch<br>
+                        <textarea class="col-sm-12 col-md-10" name="foodspecialsnotes" placeholder="sonstiges"></textarea><br />
                     </div>
                 </div>
-
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="welcomeDinnerOrigin">Woher kennst Du Welcome Dinner?*</label>
+                    <label class="control-label col-sm-2" for="coHosts">Begleitung*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="welcomeDinnerOrigin" placeholder="Woher kennst Du Welcome Dinner?" required />
+                        <textarea class="col-sm-12 col-md-10" name="bringalongs" placeholder="Freund? Kinder? Ehepartner? (Alter? Sprachen?)"></textarea><br />
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="control-label col-sm-2" for="welcomeDinnerOrigin">Woher kennst Du Welcome Dinner?</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input class="col-sm-12 col-md-10" type="text" name="welcomeDinnerOrigin" placeholder="Woher kennst Du Welcome Dinner?" />
                     </div>
                 </div>
                 <br />
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="coHosts">Begleitung*</label>
+                    <label class="control-label col-sm-2" for="notes">Möchtest Du noch etwas sagen?</label>
                     <div class="col-sm-12 col-md-10">
-                        <textarea name="bringalongs" placeholder="Freund? Kinder? Ehepartner? (Alter? Sprachen?)"></textarea><br />
-                    </div>
-                </div>
-                <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="notes">Anmerkungen/wichtige Hinweise*</label>
-                    <div class="col-sm-12 col-md-10">
-                        <textarea name="notes" placeholder="Anmerkungen/wichtige Hinweise" required></textarea>
+                        <textarea class="col-sm-12 col-md-10" name="notes" placeholder="Anmerkungen/wichtige Hinweise"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-md-12">

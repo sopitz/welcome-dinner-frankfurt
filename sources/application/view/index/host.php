@@ -44,6 +44,12 @@
 
             <form action="<?php echo Config::get('URL'); ?>register/host" method="post">
                 <div class="form-group col-md-12">
+                    <label class="control-label col-sm-2" for="date">Dinnerdatum*</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input class="col-sm-12 col-md-10" type="date" name="date" required />
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="gender">Geschlecht*</label>
                     <div class="col-sm-12 col-md-10">
                         <input type="radio" name="gender" value="male" required> männlich<br>
@@ -53,80 +59,80 @@
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="gender">Vorname*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="firstname" placeholder="Vorname" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="firstname" placeholder="Vorname" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="lastname">Nachname*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="lastname" placeholder="Nachname" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="lastname" placeholder="Nachname" required />
                     </div>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="phone">Telefon*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="tel" name="phone" placeholder="Telefon" required />
+                        <input class="col-sm-12 col-md-10" type="tel" name="phone" placeholder="Telefon" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="mail">E-Mail*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="email" name="mail" placeholder="E-Mail" required />
+                        <inputclass="col-sm-12 col-md-10"  type="email" name="mail" placeholder="E-Mail" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="street">Straße & Hausnummer*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="street" placeholder="Straße & Hausnummer" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="street" placeholder="Straße & Hausnummer" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="zipCode">PLZ*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="zipCode" placeholder="PLZ" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="zipCode" placeholder="PLZ" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="city">Stadt*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="city" placeholder="Stadt" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="city" placeholder="Stadt" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="languages">Sprachkenntnisse*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="checkbox" name="languages[]" value="german">german<br>
-                        <input type="checkbox" name="languages[]" value="english">english<br>
-                        <input type="checkbox" name="languages[]" value="french">french<br>
-                        <input type="checkbox" name="languages[]" value="spanish">spanish<br>
-                        <input type="checkbox" name="languages[]" value="arabic">arabic<br>
-                        <textarea name="languagesnotes" placeholder="weitere Sprachkenntnisse"></textarea>
+                        <input type="checkbox" name="languages[]" value="german"> deutsch<br>
+                        <input type="checkbox" name="languages[]" value="english"> englisch<br>
+                        <input type="checkbox" name="languages[]" value="french"> französisch<br>
+                        <input type="checkbox" name="languages[]" value="spanish"> spanisch<br>
+                        <input type="checkbox" name="languages[]" value="arabic"> arabisch<br>
+                        <textarea class="col-sm-12 col-md-10" name="languagesnotes" placeholder="weitere Sprachkenntnisse"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="welcomeDinnerOrigin">Woher kennst Du Welcome Dinner?*</label>
+                    <label class="control-label col-sm-2" for="children">Maximale Kinderzahl, die mitgebracht werden dürfen*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="welcomeDinnerOrigin" placeholder="Woher kennst Du Welcome Dinner?" required />
+                        <input class="col-sm-12 col-md-10" type="number" name="children" placeholder="5" required />
                     </div>
                 </div>
                 <br />
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="coHosts">Wer ist noch dabei?*</label>
+                    <label class="control-label col-sm-2" for="coHosts">Wer ist noch bei Dir dabei?*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="text" name="coHosts" placeholder="(Mann, Kinder, Freund…)" required />
+                        <input class="col-sm-12 col-md-10" type="text" name="coHosts" placeholder="(Mann, Kinder, Freund…)" required />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="notes">Anmerkungen/wichtige Hinweise*</label>
+                    <label class="control-label col-sm-2" for="welcomeDinnerOrigin">Woher kennst Du Welcome Dinner?</label>
                     <div class="col-sm-12 col-md-10">
-                        <textarea name="notes" placeholder="Anmerkungen/wichtige Hinweise" required></textarea>
+                        <input class="col-sm-12 col-md-10" type="text" name="welcomeDinnerOrigin" placeholder="Woher kennst Du Welcome Dinner?" />
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="date">Dinnerdatum*</label>
+                    <label class="control-label col-sm-2" for="notes">Anmerkungen/wichtige Hinweise</label>
                     <div class="col-sm-12 col-md-10">
-                        <input type="date" name="date" required />
+                        <textarea class="col-sm-12 col-md-10" name="notes" placeholder="Anmerkungen/wichtige Hinweise"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-md-12">
