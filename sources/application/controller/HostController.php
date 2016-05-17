@@ -39,6 +39,7 @@ class HostController extends Controller
         $hostData['welcomeDinnerOrigin'] = Request::post('welcomeDinnerOrigin');
         $hostData['coHosts'] = Request::post('coHosts');
         $hostData['notes'] = Request::post('notes');
+        $hostData['children'] = Request::post('children');
 
 
         $address = urlencode(Request::post('street')."+".Request::post('zipCode')."+".Request::post('city'));

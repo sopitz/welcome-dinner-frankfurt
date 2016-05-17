@@ -2,6 +2,7 @@
 
 class Dinner
 {
+    private $id;
     private $date;
     private $hostId;
 
@@ -40,6 +41,22 @@ class Dinner
     public function setHostId($hostId)
     {
         $this->hostId = $hostId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
 

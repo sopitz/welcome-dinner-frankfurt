@@ -19,6 +19,7 @@ class Host
     private $lat;
     private $long;
     private $dinner;
+    private $children;
 
     public function __construct($hostData) {
         $this->setGender($hostData['gender']);
@@ -39,6 +40,7 @@ class Host
         $this->setNotes($hostData['notes']);
         $this->setLat($hostData['lat']);
         $this->setLong($hostData['long']);
+        $this->setChildren($hostData['children']);
     }
 
     /**
@@ -177,6 +179,11 @@ class Host
         return implode(", ", $this->languages);
     }
 
+    public function getLanguagesArray()
+    {
+        return $this->languages;
+    }
+
     /**
      * @param array $languages
      */
@@ -311,5 +318,21 @@ class Host
     public function setDinner($dinner)
     {
         $this->dinner = $dinner;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param mixed $children
+     */
+    public function setChildren($children)
+    {
+        $this->children = $children;
     }
 }

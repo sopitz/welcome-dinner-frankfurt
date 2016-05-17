@@ -32,6 +32,7 @@ class HostModel
             $hostData['notes'] = $entry->host_notes;
             $hostData['lat'] = $entry->host_geo_lat;
             $hostData['long'] = $entry->host_geo_long;
+            $hostData['children'] = $entry->host_children;
             $host = new Host($hostData);
             $host->setId($entry->host_id);
 
@@ -74,7 +75,8 @@ class HostModel
                                       host_cohosts,
                                       host_notes,
                                       host_geo_lat,
-                                      host_geo_long
+                                      host_geo_long,
+                                      host_children
                                    ) VALUES (
                                       :host_gender,
                                       :host_firstname,
@@ -90,7 +92,8 @@ class HostModel
                                       :host_cohosts,
                                       :host_notes,
                                       :host_geo_lat,
-                                      :host_geo_long
+                                      :host_geo_long,
+                                      :host_children
                                    )";
 
 
@@ -104,13 +107,14 @@ class HostModel
             ':host_street' => $host->getStreet(),
             ':host_zipCode' => $host->getZipCode(),
             ':host_city' => $host->getCity(),
-            ':host_languages' => serialize($host->getLanguages()),
+            ':host_languages' => serialize($host->getLanguagesArray()),
             ':host_languagesnotes' => $host->getLanguagesnotes(),
             ':host_origin' => $host->getWelcomeDinnerOrigin(),
             ':host_cohosts' => $host->getCoHosts(),
             ':host_notes' => $host->getNotes(),
             ':host_geo_lat' => $host->getLat(),
-            ':host_geo_long' => $host->getLong()
+            ':host_geo_long' => $host->getLong(),
+            ':host_children' => $host->getChildren()
             )
         );
         $id = $database->lastInsertId();

@@ -31,9 +31,9 @@ class DinnerModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "INSERT INTO dinners (dinner_dinner_id, dinner_date) VALUES (:dinner_dinner_id, :dinner_date)";
+        $sql = "INSERT INTO dinners (dinner_host_id, dinner_date) VALUES (:dinner_host_id, :dinner_date)";
         $query = $database->prepare($sql);
-        $query->execute(array(':dinner_dinner_id' => $dinner->getdinnerId(), ':dinner_date' => $dinner->getDate()));
+        $query->execute(array(':dinner_host_id' => $dinner->getHostId(), ':dinner_date' => $dinner->getDate()));
 
         if ($query->rowCount() == 1) {
             return true;
