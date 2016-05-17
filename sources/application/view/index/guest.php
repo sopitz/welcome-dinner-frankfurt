@@ -33,7 +33,7 @@
     </div>
     <div class="row">
         <div class="col-sm-8">
-            <p>Du bist Flüchtling in Frankfurt am Main? Du möchtest dich gerne auf Deutsch, Englisch und auch mit Händen und Füßen austauschen?</p>
+            <p>Du bist neu in Frankfurt am Main? Du möchtest dich gerne auf Deutsch, Englisch und auch mit Händen und Füßen austauschen?</p>
             <p>Dann möchten dich Frankfurter herzlich willkommen heißen mit einem Abendessen!</p>
             <p>Wie das geht?</p>
             <ol>
