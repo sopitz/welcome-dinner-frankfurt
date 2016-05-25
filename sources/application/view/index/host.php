@@ -23,8 +23,8 @@
                     Welcome Dinner für Gastgeber
                 </h1>
                 <h3>
-                    Dieses Formular ist für Gastgeber - Gäste aus anderen Ländern können sich <a href="http://anmeldung.welcome-dinner-frankfurt.de/guest/register">hier</a> eintragen.<br />
-                    This form is for hosts - guests from foreign countries can register <a href="http://anmeldung.welcome-dinner-frankfurt.de/guest/register">here</a>.
+                    Dieses Formular ist für Gastgeber - Gäste aus anderen Ländern können sich <a href="<?php echo Config::get('URL') ?>guest/register">hier</a> eintragen.<br />
+                    This form is for hosts - guests from foreign countries can register <a href="<?php echo Config::get('URL') ?>guest/register/en">here</a>.
                 </h3>
             </div>
         </div>

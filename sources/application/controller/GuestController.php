@@ -20,7 +20,10 @@ class GuestController extends Controller
         ));
     }
 
-    public function register() {
+    public function register($lang = 'de') {
+        if ($lang == 'en') {
+            $this->View->render('index/guest_en', array());
+        }
         $this->View->render('index/guest', array());
     }
 
