@@ -55,7 +55,8 @@
                             $(document).ready(function() {
                                 $("#dinnerdate").datepicker({
                                     dateFormat: "DD, dd. MM yy",
-                                    changeMonth: true
+                                    changeMonth: true,
+                                    changeYear: true
                                 });
                             })
                         </script>
