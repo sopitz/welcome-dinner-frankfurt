@@ -30,8 +30,10 @@ class Host
         $this->setStreet($hostData['street']);
         $this->setZipCode($hostData['zipCode']);
         $this->setCity($hostData['city']);
-        foreach($hostData['languages'] as $language) {
-            $this->setLanguages($language);
+        if (isset($hostData['languages'])) {
+            foreach($hostData['languages'] as $language) {
+                $this->setLanguages($language);
+            }
         }
 
         $this->setLanguagesnotes($hostData['languagesnotes']);

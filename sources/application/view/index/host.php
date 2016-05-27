@@ -6,6 +6,8 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" media="all" href="<?php echo Config::get('URL'); ?>public/css/plain.css">
+    <style type="text/css">
+    </style>
 </head>
 <body>
 
@@ -31,7 +33,7 @@
     </div>
     <div class="row">
         <div class="col-sm-8">
-            <p>Für Fragen und Kommentare komm melde Dich bitte bei uns: <a href="https://www.facebook.com/welcomedinnerfrankfurt">https://www.facebook.com/welcomedinnerfrankfurt</a></p>
+            <p>Für Fragen und Kommentare melde Dich bitte bei uns: <a href="https://www.facebook.com/welcomedinnerfrankfurt">https://www.facebook.com/welcomedinnerfrankfurt</a></p>
         </div>
     </div>
     <div class="row">
@@ -46,7 +48,19 @@
                 <div class="form-group col-md-12">
                     <label class="control-label col-sm-2" for="date">Dinnerdatum*</label>
                     <div class="col-sm-12 col-md-10">
-                        <input class="col-sm-12 col-md-10" type="date" name="date" required />
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+                        <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                $("#dinnerdate").datepicker({
+                                    dateFormat: "DD, dd. MM yy"
+                                });
+                            })
+                        </script>
+
+                        <input id="dinnerdate" class="col-sm-12 col-md-10" type="text" name="date" required />
+
                     </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -100,7 +114,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="languages">Sprachkenntnisse*</label>
+                    <label class="control-label col-sm-2" for="languages">Sprachkenntnisse</label>
                     <div class="col-sm-12 col-md-10">
                         <input type="checkbox" name="languages[]" value="german"> deutsch<br>
                         <input type="checkbox" name="languages[]" value="english"> englisch<br>

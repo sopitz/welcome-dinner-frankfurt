@@ -41,7 +41,7 @@
                 <li>Wir rufen dich in den Wochen danach auf deinem Telefon an und besprechen mit dir, wer dich zu einem Welcome Dinner einlädt.</li>
                 <li>Hab ein tolles Abendessen! Du fährst (mit deiner Familie oder Freunden) zu deinem Gastgeber und ihr esst zusammen und lernt euch kennen. Dabei könnt ihr miteinander reden, Spiele spielen oder euch Fotos zeigen oder was ihr möchtet.</li>
             </ol>
-            <p>Für Fragen und Kommentare komm melde Dich bitte bei uns: <a href="https://www.facebook.com/welcomedinnerfrankfurt">https://www.facebook.com/welcomedinnerfrankfurt</a></p>
+            <p>Für Fragen und Kommentare melde Dich bitte bei uns: <a href="https://www.facebook.com/welcomedinnerfrankfurt">https://www.facebook.com/welcomedinnerfrankfurt</a></p>
         </div>
     </div>
     <div class="row">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="languages">Welche Sprachen sprichst du?*</label>
+                    <label class="control-label col-sm-2" for="languages">Welche Sprachen sprichst du?</label>
                     <div class="col-sm-12 col-md-10">
                         <input type="checkbox" name="languages[]" value="german"> deutsch<br>
                         <input type="checkbox" name="languages[]" value="english"> englisch<br>
@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="languages">Essen*</label>
+                    <label class="control-label col-sm-2" for="languages">Essen</label>
                     <div class="col-sm-12 col-md-10">
                         <input type="checkbox" name="foodspecials[]" value="halal"> Halal<br>
                         <input type="checkbox" name="foodspecials[]" value="nopork"> kein Schweinefleisch<br>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="coHosts">Begleitung*</label>
+                    <label class="control-label col-sm-2" for="bringalongs">Begleitung</label>
                     <div class="col-sm-12 col-md-10">
                         <textarea class="col-sm-12 col-md-10" name="bringalongs" placeholder="Freund? Kinder? Ehepartner? (Alter? Sprachen?)"></textarea><br />
                     </div>

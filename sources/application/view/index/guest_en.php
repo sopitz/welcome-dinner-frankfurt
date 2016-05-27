@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="languages">Which languages do you speak?*</label>
+                    <label class="control-label col-sm-2" for="languages">Which languages do you speak?</label>
                     <div class="col-sm-12 col-md-10">
                         <input type="checkbox" name="languages[]" value="german"> German<br>
                         <input type="checkbox" name="languages[]" value="english"> English<br>
@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="languages">Food*</label>
+                    <label class="control-label col-sm-2" for="languages">Food</label>
                     <div class="col-sm-12 col-md-10">
                         <input type="checkbox" name="foodspecials[]" value="halal"> Halal<br>
                         <input type="checkbox" name="foodspecials[]" value="nopork"> no pork<br>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-sm-2" for="coHosts">Additional guests*</label>
+                    <label class="control-label col-sm-2" for="bringalongs">Additional guests</label>
                     <div class="col-sm-12 col-md-10">
                         <textarea class="col-sm-12 col-md-10" name="bringalongs" placeholder="Friend? Children? Spouse? (Age? Languages?)"></textarea><br />
                     </div>
