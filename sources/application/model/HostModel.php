@@ -38,7 +38,10 @@ class HostModel
 
             $dinner = DinnerModel::getDinner($entry->host_id);
             $host->setDinner($dinner->getDate());
-            array_push($hosts, $host);
+
+            if (GuestModel::isHostAssigned($host->getId()) == 0) {
+                array_push($hosts, $host);
+            }
         }
 
 

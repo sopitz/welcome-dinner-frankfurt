@@ -42,6 +42,15 @@ class guestModel
         return $guests;
     }
 
+    public static function isHostAssigned($hostId) {
+        $database = DatabaseFactory::getFactory()->getConnection();
+        $sql = "SELECT count(*) AS counter FROM guests where guest_dinner_id like $hostId";
+        $query = $database->prepare($sql);
+        $query->execute();
+        $guestsData = $query->fetchAll();
+        return $guestsData[0]->counter;
+    }
+
     public static function getguest($note_id)
     {
         $database = DatabaseFactory::getFactory()->getConnection();

@@ -29,7 +29,7 @@ class GuestController extends Controller
 
     public function match($id) {
         GuestModel::matchToDinner($id);
-        echo $id;
+        Redirect::to('dashboard/index');
     }
 
     public function create()

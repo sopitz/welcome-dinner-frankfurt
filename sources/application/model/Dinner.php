@@ -24,8 +24,7 @@ class Dinner
      */
     public function setDate($date)
     {
-        $parsedDate = DateTime::createFromFormat('D, d. M Y', $date);
-        $this->date = date_format($parsedDate, 'Y-m-d');;
+        $this->date = $date;
     }
 
     /**

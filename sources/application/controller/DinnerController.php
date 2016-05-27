@@ -26,7 +26,10 @@ class DinnerController extends Controller
 
     public function create($hostId)
     {
-        $dinnerData['date'] = Request::post('date');
+
+        $parsedDate = DateTime::createFromFormat('D, d. M Y', Request::post('date'));
+
+        $dinnerData['date'] = $parsedDate->format('Y-m-d H:i:s');
         $dinnerData['hostId'] = $hostId;
         $dinner = new Dinner($dinnerData);
         if (DinnerModel::createDinner($dinner)) {

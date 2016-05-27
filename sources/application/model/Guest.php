@@ -34,11 +34,16 @@ class Guest
         $this->setZipCode($guestData['zipCode']);
         $this->setCity($guestData['city']);
         $this->setCountry($guestData['country']);
-        foreach($guestData['languages'] as $language) {
-            $this->setLanguages($language);
+        if (isset($guestData['languages'])) {
+            foreach($guestData['languages'] as $language) {
+                $this->setLanguages($language);
+            }
         }
-        foreach($guestData['foodspecials'] as $foodspecial) {
-            $this->setFoodspecials($foodspecial);
+
+        if (isset($guestData['foodspecials'])) {
+            foreach ($guestData['foodspecials'] as $foodspecial) {
+                $this->setFoodspecials($foodspecial);
+            }
         }
 
 
