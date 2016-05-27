@@ -26,10 +26,12 @@ class RegisterController extends Controller
     {
         $hostId = $this->hostController->create();
         $this->dinnerController->create($hostId);
+        Redirect::to('close/index');
     }
 
     public function guest() {
         $this->guestController->create();
+        Redirect::to('close/index');
     }
 
 }
