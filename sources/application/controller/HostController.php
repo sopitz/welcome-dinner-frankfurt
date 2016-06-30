@@ -78,6 +78,10 @@ class HostController extends Controller
         $hostId = $_POST['pk'];
         $newValue = $_POST['value'];
 
+        if ($field == "host_languages") {
+            $newValue = serialize(explode(',', $newValue));
+        }
+
         HostModel::updateHost($field, $hostId, $newValue);
 
         return true;

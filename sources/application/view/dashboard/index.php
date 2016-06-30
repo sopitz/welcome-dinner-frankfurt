@@ -45,7 +45,7 @@
         $hostCounter = 0;
         foreach($this->hosts as $host) {
             $postURL = '/host/update/';
-            echo 'var HOSTinfowindow'.$hostCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><h3 id="firstHeading" class="firstHeading"><a href="#" id="host_firstname" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getFirstname().'</a> '.$host->getLastname().' ('.$host->getGender().')</h3>(Host)<div id="bodyContent"><p>Tel: '.$host->getPhone().'</p><p>E-Mail: '.$host->getMail().'</p><p>Adresse: '.$host->getStreet().', '.$host->getZipCode().' '.$host->getCity().'</p><p>Sprachen: '.$host->getLanguages().'</p><p>weitere Sprachen: '.$host->getLanguagesnotes().'</p><p>erlaubte Anzahl Kinder: '.$host->getChildren().'</p><p>Referrer: '.$host->getWelcomeDinnerOrigin().'</p><p>Co-Hosts: '.$host->getCoHosts().'</p><p>Anmerkungen: '.$host->getNotes().'</p></div></div>\'});';
+            echo 'var HOSTinfowindow'.$hostCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><h3 id="firstHeading" class="firstHeading"><a href="#" id="host_firstname" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getFirstname().'</a> <a href="#" id="host_lastname" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLastname().'</a> (<a href="#" id="host_gender" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getGender().'</a>)</h3>(Host)<div id="bodyContent"><p>Tel: <a href="#" id="host_phone" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getPhone().'</a></p><p>E-Mail: <a href="#" id="host_mail" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getMail().'</a></p><p>Adresse: <a href="#" id="host_street" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getStreet().'</a>, <a href="#" id="host_zipCode" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getZipCode().'</a> <a href="#" id="host_city" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getCity().'</a></p><p>Sprachen: <a href="#" id="host_languages" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLanguages().'</a></p><p>weitere Sprachen: <a href="#" id="host_languagesnotes" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLanguagesnotes().'</a></p><p>erlaubte Anzahl Kinder: <a href="#" id="host_children" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getChildren().'</a></p><p>Referrer: <a href="#" id="host_origin" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getWelcomeDinnerOrigin().'</a></p><p>Co-Hosts: <a href="#" id="host_cohosts" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getCoHosts().'</a></p><p>Anmerkungen: <a href="#" id="host_notes" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getNotes().'</a></p></div></div>\'});';
             if ($host->getMatched()) {
                 echo 'var HOSTmarker'.$hostCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/blue-dot.png\', position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
             } else {
@@ -62,9 +62,9 @@
                            title: "Enter username"
                        });';
             $hostCounter++;
-            $hostSelectionString = $hostSelectionString.'<option name="dinnerId" value="'.$host->getId().'">'.$host->getFirstname().' '.$host->getLastname().', '.$host->getDinner().'</option>';
-
-
+            if ($host->getMatched() != true) {
+                $hostSelectionString = $hostSelectionString.'<option name="dinnerId" value="'.$host->getId().'">'.$host->getFirstname().' '.$host->getLastname().', '.$host->getDinner().'</option>';
+            }
         }
 
         $guestCounter = 0;
@@ -87,6 +87,19 @@
     $(window).mousemove(function( ) {
         $.fn.editable.defaults.mode = "inline";
         $("#host_firstname").editable();
+        $("#host_lastname").editable();
+        $("#host_gender").editable();
+        $("#host_phone").editable();
+        $("#host_mail").editable();
+        $("#host_street").editable();
+        $("#host_zipCode").editable();
+        $("#host_city").editable();
+        $("#host_languages").editable();
+        $("#host_languagesnotes").editable();
+        $("#host_children").editable();
+        $("#host_origin").editable();
+        $("#host_cohosts").editable();
+        $("#host_notes").editable();
     });
 
 
