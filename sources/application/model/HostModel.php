@@ -6,6 +6,14 @@
  */
 class HostModel
 {
+    public static function updateHost($field, $id, $value) {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $sql = "UPDATE hosts set $field = '$value' where host_id=$id";
+        $query = $database->prepare($sql);
+        $query->execute();
+    }
+
     public static function getAllHosts()
     {
         $database = DatabaseFactory::getFactory()->getConnection();

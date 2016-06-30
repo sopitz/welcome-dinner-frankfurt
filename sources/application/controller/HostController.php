@@ -72,4 +72,15 @@ class HostController extends Controller
 
     }
 
+    public function update() {
+
+        $field = $_POST['name'];
+        $hostId = $_POST['pk'];
+        $newValue = $_POST['value'];
+
+        HostModel::updateHost($field, $hostId, $newValue);
+
+        return true;
+    }
+
 }
