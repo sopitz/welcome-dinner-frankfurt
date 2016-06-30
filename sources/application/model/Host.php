@@ -20,6 +20,7 @@ class Host
     private $long;
     private $dinner;
     private $children;
+    private $matched;
 
     public function __construct($hostData) {
         $this->setGender($hostData['gender']);
@@ -336,5 +337,21 @@ class Host
     public function setChildren($children)
     {
         $this->children = $children;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMatched()
+    {
+        return $this->matched;
+    }
+
+    /**
+     * @param mixed $matched
+     */
+    public function setMatched($matched)
+    {
+        $this->matched = $matched;
     }
 }

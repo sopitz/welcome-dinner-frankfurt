@@ -38,7 +38,12 @@
         $hostCounter = 0;
         foreach($this->hosts as $host) {
             echo 'var HOSTinfowindow'.$hostCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><h3 id="firstHeading" class="firstHeading">'.$host->getFirstname().' '.$host->getLastname().' ('.$host->getGender().')</h3>(Host)<div id="bodyContent"><p>Tel: '.$host->getPhone().'</p><p>E-Mail: '.$host->getMail().'</p><p>Adresse: '.$host->getStreet().', '.$host->getZipCode().' '.$host->getCity().'</p><p>Sprachen: '.$host->getLanguages().'</p><p>weitere Sprachen: '.$host->getLanguagesnotes().'</p><p>erlaubte Anzahl Kinder: '.$host->getChildren().'</p><p>Referrer: '.$host->getWelcomeDinnerOrigin().'</p><p>Co-Hosts: '.$host->getCoHosts().'</p><p>Anmerkungen: '.$host->getNotes().'</p></div></div>\'});';
-            echo 'var HOSTmarker'.$hostCounter.' = new google.maps.Marker({position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
+            if ($host->getMatched()) {
+                echo 'var HOSTmarker'.$hostCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/blue-dot.png\', position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
+            } else {
+                echo 'var HOSTmarker'.$hostCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/red-dot.png\', position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
+            }
+
             echo 'HOSTmarker'.$hostCounter.'.addListener(\'click\', function() {HOSTinfowindow'.$hostCounter.'.open(map, HOSTmarker'.$hostCounter.');});';
             $hostCounter++;
             $hostSelectionString = $hostSelectionString.'<option name="dinnerId" value="'.$host->getId().'">'.$host->getFirstname().' '.$host->getLastname().', '.$host->getDinner().'</option>';
@@ -47,8 +52,14 @@
 
         $guestCounter = 0;
         foreach($this->guests as $guest) {
-            echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$guest->getFirstname().' '.$guest->getLastname().' ('.$guest->getGender().')</h3>(Guest)<div id="bodyContent"><p>Alter: '.$guest->getAge().'</p><p>Tel: '.$guest->getPhone().'</p><p>E-Mail: '.$guest->getMail().'</p><p>Adresse: '.$guest->getStreet().', '.$guest->getZipCode().' '.$guest->getCity().'</p><p>Land: '.$guest->getCountry().'</p><p>Sprachen: '.$guest->getLanguages().'</p><p>Essen: '.$guest->getFoodspecials().'</p><p>Essen Bemerkung: '.$guest->getFoodspecialsnotes().'</p><p>Referrer: '.$guest->getWelcomeDinnerOrigin().'</p><p>Begleitung: '.$guest->getBringalongs().'</p><p>Anmerkungen: '.$guest->getNotes().'</p><p><form action="'.Config::get('URL').'guest/match/'.$guest->getId().'" method="post"><select name="dinnerId">'.$hostSelectionString.'</select><button type="submit">zuordnen</button></form></p></div></div>\'});';
-            echo 'var GUESTmarker'.$guestCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/green-dot.png\', position: {lat: '.$guest->getLat().', lng: '.$guest->getLong().'},map: map,title: \''.$guest->getFirstname().' '.$guest->getLastname().'\'});';
+            if ($guest->getMatched()) {
+                echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$guest->getFirstname().' '.$guest->getLastname().' ('.$guest->getGender().')</h3>(Guest)<div id="bodyContent"><p>Alter: '.$guest->getAge().'</p><p>Tel: '.$guest->getPhone().'</p><p>E-Mail: '.$guest->getMail().'</p><p>Adresse: '.$guest->getStreet().', '.$guest->getZipCode().' '.$guest->getCity().'</p><p>Land: '.$guest->getCountry().'</p><p>Sprachen: '.$guest->getLanguages().'</p><p>Essen: '.$guest->getFoodspecials().'</p><p>Essen Bemerkung: '.$guest->getFoodspecialsnotes().'</p><p>Referrer: '.$guest->getWelcomeDinnerOrigin().'</p><p>Begleitung: '.$guest->getBringalongs().'</p><p>Anmerkungen: '.$guest->getNotes().'</p></div></div>\'});';
+                echo 'var GUESTmarker'.$guestCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/blue-dot.png\', position: {lat: '.$guest->getLat().', lng: '.$guest->getLong().'},map: map,title: \''.$guest->getFirstname().' '.$guest->getLastname().'\'});';
+            } else {
+                echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$guest->getFirstname().' '.$guest->getLastname().' ('.$guest->getGender().')</h3>(Guest)<div id="bodyContent"><p>Alter: '.$guest->getAge().'</p><p>Tel: '.$guest->getPhone().'</p><p>E-Mail: '.$guest->getMail().'</p><p>Adresse: '.$guest->getStreet().', '.$guest->getZipCode().' '.$guest->getCity().'</p><p>Land: '.$guest->getCountry().'</p><p>Sprachen: '.$guest->getLanguages().'</p><p>Essen: '.$guest->getFoodspecials().'</p><p>Essen Bemerkung: '.$guest->getFoodspecialsnotes().'</p><p>Referrer: '.$guest->getWelcomeDinnerOrigin().'</p><p>Begleitung: '.$guest->getBringalongs().'</p><p>Anmerkungen: '.$guest->getNotes().'</p><p><form action="'.Config::get('URL').'guest/match/'.$guest->getId().'" method="post"><select name="dinnerId">'.$hostSelectionString.'</select><button type="submit">zuordnen</button></form></p></div></div>\'});';
+                echo 'var GUESTmarker'.$guestCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/green-dot.png\', position: {lat: '.$guest->getLat().', lng: '.$guest->getLong().'},map: map,title: \''.$guest->getFirstname().' '.$guest->getLastname().'\'});';
+            }
+
             echo 'GUESTmarker'.$guestCounter.'.addListener(\'click\', function() {GUESTinfowindow'.$guestCounter.'.open(map, GUESTmarker'.$guestCounter.');});';
             $guestCounter++;
         }

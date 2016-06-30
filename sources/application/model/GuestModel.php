@@ -10,7 +10,7 @@ class guestModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT * FROM guests where guest_dinner_id IS NULL";
+        $sql = "SELECT * FROM guests";
         $query = $database->prepare($sql);
         $query->execute();
         $guestsData = $query->fetchAll();
@@ -37,6 +37,11 @@ class guestModel
             $guestData['long'] = $entry->guest_geo_long;
             $guest = new Guest($guestData);
             $guest->setId($entry->guest_id);
+            if ($entry->guest_dinner_id != null) {
+                $guest->setMatched(true);
+            } else {
+                $guest->setMatched(false);
+            }
             array_push($guests, $guest);
         }
         return $guests;

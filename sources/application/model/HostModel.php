@@ -40,8 +40,11 @@ class HostModel
             $host->setDinner($dinner->getDate());
 
             if (GuestModel::isHostAssigned($host->getId()) == 0) {
-                array_push($hosts, $host);
+                $host->setMatched(false);
+            } else {
+                $host->setMatched(true);
             }
+            array_push($hosts, $host);
         }
 
 

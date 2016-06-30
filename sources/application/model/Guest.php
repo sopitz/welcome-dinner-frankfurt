@@ -22,6 +22,7 @@ class Guest
     private $lat;
     private $long;
     private $guestDinner;
+    private $matched;
 
     public function __construct($guestData) {
         $this->setGender($guestData['gender']);
@@ -398,5 +399,21 @@ class Guest
     public function setGuestDinner($guestDinner)
     {
         $this->guestDinner = $guestDinner;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMatched()
+    {
+        return $this->matched;
+    }
+
+    /**
+     * @param mixed $matched
+     */
+    public function setMatched($matched)
+    {
+        $this->matched = $matched;
     }
 }
