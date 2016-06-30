@@ -4,8 +4,16 @@
  * NoteModel
  * This is basically a simple CRUD (Create/Read/Update/Delete) demonstration.
  */
-class guestModel
+class GuestModel
 {
+    public static function updateGuest($field, $id, $value) {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $sql = "UPDATE guests set $field = '$value' where guest_id=$id";
+        $query = $database->prepare($sql);
+        $query->execute();
+    }
+
     public static function getAllGuests()
     {
         $database = DatabaseFactory::getFactory()->getConnection();

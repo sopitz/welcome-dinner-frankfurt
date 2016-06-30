@@ -45,36 +45,123 @@
         $hostCounter = 0;
         foreach($this->hosts as $host) {
             $postURL = '/host/update/';
-            echo 'var HOSTinfowindow'.$hostCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><h3 id="firstHeading" class="firstHeading"><a href="#" id="host_firstname" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getFirstname().'</a> <a href="#" id="host_lastname" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLastname().'</a> (<a href="#" id="host_gender" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getGender().'</a>)</h3>(Host)<div id="bodyContent"><p>Tel: <a href="#" id="host_phone" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getPhone().'</a></p><p>E-Mail: <a href="#" id="host_mail" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getMail().'</a></p><p>Adresse: <a href="#" id="host_street" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getStreet().'</a>, <a href="#" id="host_zipCode" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getZipCode().'</a> <a href="#" id="host_city" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getCity().'</a></p><p>Sprachen: <a href="#" id="host_languages" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLanguages().'</a></p><p>weitere Sprachen: <a href="#" id="host_languagesnotes" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLanguagesnotes().'</a></p><p>erlaubte Anzahl Kinder: <a href="#" id="host_children" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getChildren().'</a></p><p>Referrer: <a href="#" id="host_origin" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getWelcomeDinnerOrigin().'</a></p><p>Co-Hosts: <a href="#" id="host_cohosts" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getCoHosts().'</a></p><p>Anmerkungen: <a href="#" id="host_notes" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getNotes().'</a></p></div></div>\'});';
+            echo 'var HOSTinfowindow'.$hostCounter.' = new google.maps.InfoWindow({content: \'';
+            echo '<div id="content">';
+                echo '<h3 id="firstHeading" class="firstHeading">';
+                    echo '<a href="#" id="host_firstname" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getFirstname().'</a> ';
+                    echo '<a href="#" id="host_lastname" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLastname().'</a> ';
+                    echo '(<a href="#" id="host_gender" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getGender().'</a>)';
+                echo '</h3>(Host)';
+                echo '<div id="bodyContent">';
+                    echo '<p>Tel: <a href="#" id="host_phone" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getPhone().'</a></p>';
+                    echo '<p>E-Mail: <a href="#" id="host_mail" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getMail().'</a></p>';
+                    echo '<p>';
+                        echo 'Adresse: <a href="#" id="host_street" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getStreet().'</a>, ';
+                        echo '<a href="#" id="host_zipCode" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getZipCode().'</a> ';
+                        echo '<a href="#" id="host_city" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getCity().'</a>';
+                    echo '</p>';
+                    echo '<p>Sprachen: <a href="#" id="host_languages" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLanguages().'</a></p>';
+                    echo '<p>weitere Sprachen: <a href="#" id="host_languagesnotes" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getLanguagesnotes().'</a></p>';
+                    echo '<p>erlaubte Anzahl Kinder: <a href="#" id="host_children" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getChildren().'</a></p>';
+                    echo '<p>Referrer: <a href="#" id="host_origin" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getWelcomeDinnerOrigin().'</a></p>';
+                    echo '<p>Co-Hosts: <a href="#" id="host_cohosts" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getCoHosts().'</a></p>';
+                    echo '<p>Anmerkungen: <a href="#" id="host_notes" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getNotes().'</a></p>';
+                echo '</div>';
+            echo '</div>\'});';
+            echo '
+        ';
+
+
             if ($host->getMatched()) {
                 echo 'var HOSTmarker'.$hostCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/blue-dot.png\', position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
             } else {
                 echo 'var HOSTmarker'.$hostCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/red-dot.png\', position: {lat: '.$host->getLat().', lng: '.$host->getLong().'},map: map,title: \''.$host->getFirstname().' '.$host->getLastname().'\'});';
             }
-
+            echo '
+        ';
             echo 'HOSTmarker'.$hostCounter.'.addListener(\'click\', function() {HOSTinfowindow'.$hostCounter.'.open(map, HOSTmarker'.$hostCounter.');});';
             echo '
-                    $.fn.editable.defaults.mode = "inline";
-                       $("#HOST_firstname'.$hostCounter.'").editable({
-                           type: "text",
-                           pk: 1, url:
-                           "/post",
-                           title: "Enter username"
-                       });';
+        ';
             $hostCounter++;
             if ($host->getMatched() != true) {
                 $hostSelectionString = $hostSelectionString.'<option name="dinnerId" value="'.$host->getId().'">'.$host->getFirstname().' '.$host->getLastname().', '.$host->getDinner().'</option>';
             }
         }
 
+        echo '
+        ';
+
         $guestCounter = 0;
+        $postURL = '/guest/update/';
         foreach($this->guests as $guest) {
             if ($guest->getMatched()) {
-                echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$guest->getFirstname().' '.$guest->getLastname().' ('.$guest->getGender().')</h3>(Guest)<div id="bodyContent"><p>Alter: '.$guest->getAge().'</p><p>Tel: '.$guest->getPhone().'</p><p>E-Mail: '.$guest->getMail().'</p><p>Adresse: '.$guest->getStreet().', '.$guest->getZipCode().' '.$guest->getCity().'</p><p>Land: '.$guest->getCountry().'</p><p>Sprachen: '.$guest->getLanguages().'</p><p>Essen: '.$guest->getFoodspecials().'</p><p>Essen Bemerkung: '.$guest->getFoodspecialsnotes().'</p><p>Referrer: '.$guest->getWelcomeDinnerOrigin().'</p><p>Begleitung: '.$guest->getBringalongs().'</p><p>Anmerkungen: '.$guest->getNotes().'</p></div></div>\'});';
-                echo 'var GUESTmarker'.$guestCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/blue-dot.png\', position: {lat: '.$guest->getLat().', lng: '.$guest->getLong().'},map: map,title: \''.$guest->getFirstname().' '.$guest->getLastname().'\'});';
+                echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'';
+                echo '<div id="content">';
+                    echo '<div id="siteNotice"></div>';
+                    echo '<h3 id="firstHeading" class="firstHeading">';
+                    echo ' <a href="#" id="guest_firstname" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getFirstname().'</a>';
+                    echo ' <a href="#" id="guest_lastname" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getLastname().'</a> (';
+                    echo '<a href="#" id="guest_gender" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getGender().'</a>)';
+                    echo '</h3>(Guest)';
+                    echo '<div id="bodyContent">';
+                        echo '<p>Alter: <a href="#" id="guest_age" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getAge().'</a></p>';
+                        echo '<p>Tel: <a href="#" id="guest_phone" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getPhone().'</a></p>';
+                        echo '<p>E-Mail: <a href="#" id="guest_mail" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getMail().'</a></p>';
+                        echo '<p>Adresse: ';
+                            echo '<a href="#" id="guest_street" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getStreet().'</a>, ';
+                            echo '<a href="#" id="guest_zipCode" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getZipCode().'</a> ';
+                            echo '<a href="#" id="guest_city" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getCity().'</a>';
+                        echo '</p>';
+                        echo '<p>Land: <a href="#" id="guest_country" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getCountry().'</a></p>';
+                        echo '<p>Sprachen: <a href="#" id="guest_languages" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getLanguages().'</a></p>';
+                        echo '<p>Essen: <a href="#" id="guest_foodspecials" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getFoodspecials().'</a></p>';
+                        echo '<p>Essen Bemerkung: <a href="#" id="guest_foodspecialsnotes" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getFoodspecialsnotes().'</a></p>';
+                        echo '<p>Referrer: <a href="#" id="guest_origin" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getWelcomeDinnerOrigin().'</a></p>';
+                        echo '<p>Begleitung: <a href="#" id="guest_bringalongs" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getBringalongs().'</a></p>';
+                        echo '<p>Anmerkungen: <a href="#" id="guest_notes" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getNotes().'</a></p>';
+                    echo '</div>';
+                echo '</div>\'});';
+                echo '
+        ';
+                echo 'var GUESTmarker'.$guestCounter.' = new google.maps.Marker({icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png", position: {lat: '.$guest->getLat().', lng: '.$guest->getLong().'}, map: map,title: "'.$guest->getFirstname().' '.$guest->getLastname().'"});';
+                echo '
+        ';
             } else {
-                echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'<div id="content"><div id="siteNotice"></div><h3 id="firstHeading" class="firstHeading">'.$guest->getFirstname().' '.$guest->getLastname().' ('.$guest->getGender().')</h3>(Guest)<div id="bodyContent"><p>Alter: '.$guest->getAge().'</p><p>Tel: '.$guest->getPhone().'</p><p>E-Mail: '.$guest->getMail().'</p><p>Adresse: '.$guest->getStreet().', '.$guest->getZipCode().' '.$guest->getCity().'</p><p>Land: '.$guest->getCountry().'</p><p>Sprachen: '.$guest->getLanguages().'</p><p>Essen: '.$guest->getFoodspecials().'</p><p>Essen Bemerkung: '.$guest->getFoodspecialsnotes().'</p><p>Referrer: '.$guest->getWelcomeDinnerOrigin().'</p><p>Begleitung: '.$guest->getBringalongs().'</p><p>Anmerkungen: '.$guest->getNotes().'</p><p><form action="'.Config::get('URL').'guest/match/'.$guest->getId().'" method="post"><select name="dinnerId">'.$hostSelectionString.'</select><button type="submit">zuordnen</button></form></p></div></div>\'});';
+                echo 'var GUESTinfowindow'.$guestCounter.' = new google.maps.InfoWindow({content: \'';
+                echo '<div id="content">';
+                    echo '<div id="siteNotice"></div>';
+                    echo '<h3 id="firstHeading" class="firstHeading">';
+                    echo ' <a href="#" id="guest_firstname" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getFirstname().'</a>';
+                    echo ' <a href="#" id="guest_lastname" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getLastname().'</a> (';
+                    echo '<a href="#" id="guest_gender" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getGender().'</a>)';
+                    echo '</h3>(Guest)';
+                    echo '<div id="bodyContent">';
+                        echo '<p>Alter: <a href="#" id="guest_age" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getAge().'</a></p>';
+                        echo '<p>Tel: <a href="#" id="guest_phone" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getPhone().'</a></p>';
+                        echo '<p>E-Mail: <a href="#" id="guest_mail" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getMail().'</a></p>';
+                        echo '<p>Adresse: ';
+                            echo '<a href="#" id="guest_street" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getStreet().'</a>, ';
+                            echo '<a href="#" id="guest_zipCode" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getZipCode().'</a> ';
+                            echo '<a href="#" id="guest_city" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getCity().'</a>';
+                        echo '</p>';
+                        echo '<p>Land: <a href="#" id="guest_country" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getCountry().'</a></p>';
+                        echo '<p>Sprachen: <a href="#" id="guest_languages" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getLanguages().'</a></p>';
+                        echo '<p>Essen: <a href="#" id="guest_foodspecials" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getFoodspecials().'</a></p>';
+                        echo '<p>Essen Bemerkung: <a href="#" id="guest_foodspecialsnotes" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getFoodspecialsnotes().'</a></p>';
+                        echo '<p>Referrer: <a href="#" id="guest_origin" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getWelcomeDinnerOrigin().'</a></p>';
+                        echo '<p>Begleitung: <a href="#" id="guest_bringalongs" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getBringalongs().'</a></p>';
+                        echo '<p>Anmerkungen: <a href="#" id="guest_notes" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getNotes().'</a></p>';
+                    echo '<p><form action="'.Config::get('URL').'guest/match/'.$guest->getId().'" method="post">';
+                            echo '<select name="dinnerId">'.$hostSelectionString.'</select>';
+                            echo '<button type="submit">zuordnen</button>';
+                        echo '</form></p>';
+                    echo '</div>';
+                echo '</div>\'});';
+                echo '
+        ';
                 echo 'var GUESTmarker'.$guestCounter.' = new google.maps.Marker({icon: \'http://maps.google.com/mapfiles/ms/icons/green-dot.png\', position: {lat: '.$guest->getLat().', lng: '.$guest->getLong().'},map: map,title: \''.$guest->getFirstname().' '.$guest->getLastname().'\'});';
+                echo '
+        ';
             }
 
             echo 'GUESTmarker'.$guestCounter.'.addListener(\'click\', function() {GUESTinfowindow'.$guestCounter.'.open(map, GUESTmarker'.$guestCounter.');});';
@@ -100,6 +187,25 @@
         $("#host_origin").editable();
         $("#host_cohosts").editable();
         $("#host_notes").editable();
+
+
+        $("#guest_firstname").editable();
+        $("#guest_lastname").editable();
+        $("#guest_gender").editable();
+        $("#guest_age").editable();
+        $("#guest_phone").editable();
+        $("#guest_mail").editable();
+        $("#guest_street").editable();
+        $("#guest_zipCode").editable();
+        $("#guest_city").editable();
+        $("#guest_country").editable();
+        $("#guest_languages").editable();
+        $("#guest_languagesnotes").editable();
+        $("#guest_foodspecials").editable();
+        $("#guest_foodspecialsnotes").editable();
+        $("#guest_origin").editable();
+        $("#guest_bringalongs").editable();
+        $("#guest_notes").editable();
     });
 
 

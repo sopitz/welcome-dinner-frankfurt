@@ -82,4 +82,23 @@ class GuestController extends Controller
 
     }
 
+    public function update() {
+
+        $field = $_POST['name'];
+        $hostId = $_POST['pk'];
+        $newValue = $_POST['value'];
+
+        if ($field == "guest_languages") {
+            $newValue = serialize(explode(',', $newValue));
+        }
+
+        if ($field == "guest_foodspecials") {
+            $newValue = serialize(explode(',', $newValue));
+        }
+
+        GuestModel::updateGuest($field, $hostId, $newValue);
+
+        return true;
+    }
+
 }
