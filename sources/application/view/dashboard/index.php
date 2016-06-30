@@ -119,6 +119,8 @@
                         echo '<p>Referrer: <a href="#" id="guest_origin" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getWelcomeDinnerOrigin().'</a></p>';
                         echo '<p>Begleitung: <a href="#" id="guest_bringalongs" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getBringalongs().'</a></p>';
                         echo '<p>Anmerkungen: <a href="#" id="guest_notes" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getNotes().'</a></p>';
+                        echo '<hr />';
+                        echo '<p>Zugeordnet zu: <a href="#" id="guest_dinner" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getHost().'</a></p>';
                     echo '</div>';
                 echo '</div>\'});';
                 echo '
@@ -151,7 +153,7 @@
                         echo '<p>Referrer: <a href="#" id="guest_origin" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getWelcomeDinnerOrigin().'</a></p>';
                         echo '<p>Begleitung: <a href="#" id="guest_bringalongs" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getBringalongs().'</a></p>';
                         echo '<p>Anmerkungen: <a href="#" id="guest_notes" data-type="text" data-pk="'.$guest->getId().'" data-url="'.$postURL.'" data-title="">'.$guest->getNotes().'</a></p>';
-                    echo '<p><form action="'.Config::get('URL').'guest/match/'.$guest->getId().'" method="post">';
+                        echo '<p><form action="'.Config::get('URL').'guest/match/'.$guest->getId().'" method="post">';
                             echo '<select name="dinnerId">'.$hostSelectionString.'</select>';
                             echo '<button type="submit">zuordnen</button>';
                         echo '</form></p>';
@@ -206,6 +208,7 @@
         $("#guest_origin").editable();
         $("#guest_bringalongs").editable();
         $("#guest_notes").editable();
+        $("#guest_dinner").editable();
     });
 
 

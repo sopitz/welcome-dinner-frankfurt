@@ -59,15 +59,43 @@ class HostModel
         return $hosts;
     }
 
-    public static function getHost($note_id)
+    public static function getHost($hostId)
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT * FROM hosts WHERE user_id = :user_id AND note_id = :note_id LIMIT 1";
+        $sql = "SELECT * FROM hosts WHERE host_id = :host_id";
         $query = $database->prepare($sql);
-        $query->execute(array(':user_id' => Session::get('user_id'), ':note_id' => $note_id));
+        $query->execute(array(':host_id' => $hostId));
 
-        return $query->fetch();
+        $entry = $query->fetch();
+        $hostData['gender'] = $entry->host_gender;
+        $hostData['firstname'] = $entry->host_firstname;
+        $hostData['lastname'] = $entry->host_lastname;
+        $hostData['phone'] = $entry->host_phone;
+        $hostData['mail'] = $entry->host_mail;
+        $hostData['street'] = $entry->host_street;
+        $hostData['zipCode'] = $entry->host_zipCode;
+        $hostData['city'] = $entry->host_city;
+        $hostData['languages'] = unserialize($entry->host_languages);
+        $hostData['languagesnotes'] = $entry->host_languagesnotes;
+        $hostData['welcomeDinnerOrigin'] = $entry->host_origin;
+        $hostData['coHosts'] = $entry->host_cohosts;
+        $hostData['notes'] = $entry->host_notes;
+        $hostData['lat'] = $entry->host_geo_lat;
+        $hostData['long'] = $entry->host_geo_long;
+        $hostData['children'] = $entry->host_children;
+        $host = new Host($hostData);
+        $host->setId($entry->host_id);
+
+        $dinner = DinnerModel::getDinner($entry->host_id);
+        $host->setDinner($dinner->getDate());
+
+        if (GuestModel::isHostAssigned($host->getId()) == 0) {
+            $host->setMatched(false);
+        } else {
+            $host->setMatched(true);
+        }
+        return $host;
     }
 
     public static function createHost($host)

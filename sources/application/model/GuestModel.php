@@ -47,6 +47,9 @@ class GuestModel
             $guest->setId($entry->guest_id);
             if ($entry->guest_dinner_id != null) {
                 $guest->setMatched(true);
+                $dinner = DinnerModel::getDinner($entry->guest_dinner_id);
+                $host = HostModel::getHost($dinner->getHostId());
+                $guest->setHost($host->getFirstname().' '.$host->getLastname().', '.$dinner->getDate());
             } else {
                 $guest->setMatched(false);
             }
@@ -54,6 +57,7 @@ class GuestModel
         }
         return $guests;
     }
+
 
     public static function isHostAssigned($hostId) {
         $database = DatabaseFactory::getFactory()->getConnection();
@@ -76,12 +80,18 @@ class GuestModel
     }
 
     public static function matchToDinner($guestId) {
+        $dinnerId = Request::post('dinnerId');
+        self::updateDinner($guestId, $dinnerId);
+    }
+
+    public static function deleteDinner($guestId) {
+        self::updateDinner($guestId, NULL);
+    }
+
+    private static function updateDinner($guestId, $dinnerId) {
         $database = DatabaseFactory::getFactory()->getConnection();
 
         $sql = "UPDATE guests set guest_dinner_id=:guest_dinner_id where guest_id=:guest_id";
-
-        echo "dinnerid".Request::post('dinnerId');
-        $dinnerId = Request::post('dinnerId');
 
         $query = $database->prepare($sql);
         $query->execute(array(
