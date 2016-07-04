@@ -43,6 +43,7 @@
 
         $hostSelectionString = "";
         $hostCounter = 0;
+        $selectionStringArray = array();
         foreach($this->hosts as $host) {
             $postURL = '/host/update/';
             echo 'var HOSTinfowindow'.$hostCounter.' = new google.maps.InfoWindow({content: \'';
@@ -85,8 +86,13 @@
         ';
             $hostCounter++;
             if ($host->getMatched() != true) {
-                $hostSelectionString = $hostSelectionString.'<option name="dinnerId" value="'.$host->getId().'">'.$host->getFirstname().' '.$host->getLastname().', '.$host->getDinner().'</option>';
+                $selectionStringArray[$host->getDinner()] = '<option name="dinnerId" value="'.$host->getId().'">'.$host->getFirstname().' '.$host->getLastname().', '.$host->getDinner().'</option>';
             }
+        }
+
+        ksort($selectionStringArray);
+        foreach ($selectionStringArray as $entry) {
+            $hostSelectionString = $hostSelectionString.$entry;
         }
 
         echo '
