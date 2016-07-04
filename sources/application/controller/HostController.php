@@ -82,6 +82,11 @@ class HostController extends Controller
             $newValue = serialize(explode(',', $newValue));
         }
 
+        if ($field == "host_dinner") {
+            DinnerModel::updateDinner($hostId, $newValue);
+            return true;
+        }
+
         HostModel::updateHost($field, $hostId, $newValue);
 
         return true;

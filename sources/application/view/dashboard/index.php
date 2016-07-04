@@ -53,6 +53,7 @@
                     echo '(<a href="#" id="host_gender" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getGender().'</a>)';
                 echo '</h3>(Host)';
                 echo '<div id="bodyContent">';
+                    echo '<p>Dinner: <a href="#" id="host_dinner" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getDinner().'</a></p>';
                     echo '<p>Tel: <a href="#" id="host_phone" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getPhone().'</a></p>';
                     echo '<p>E-Mail: <a href="#" id="host_mail" data-type="text" data-pk="'.$host->getId().'" data-url="'.$postURL.'" data-title="">'.$host->getMail().'</a></p>';
                     echo '<p>';
@@ -178,6 +179,7 @@
         $("#host_firstname").editable();
         $("#host_lastname").editable();
         $("#host_gender").editable();
+        $("#host_dinner").editable();
         $("#host_phone").editable();
         $("#host_mail").editable();
         $("#host_street").editable();

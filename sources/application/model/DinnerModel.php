@@ -41,4 +41,12 @@ class DinnerModel
 
         return false;
     }
+
+    public static function updateDinner($id, $value) {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $sql = "UPDATE dinners set dinner_date = '$value' where dinner_host_id=$id";
+        $query = $database->prepare($sql);
+        $query->execute();
+    }
 }
